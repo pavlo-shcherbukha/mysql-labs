@@ -1,0 +1,2391 @@
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+	BEGIN 
+	    DECLARE L_STEP CHAR(10000) DEFAULT '';
+            DECLARE L_MSG  CHAR(10000) DEFAULT '';
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal sqlstate '45000' set message_text = msg;
+            END IF;
+
+            --DECLARE DONE INT DEFAULT 0;
+            
+            --DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+
+            
+
+            
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+	BEGIN 
+	    DECLARE L_STEP CHAR(10000) D' at line 6
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+	BEGIN 
+	    DECLARE L_STEP CHAR(1000) DEFAULT '';
+            DECLARE L_MSG  CHAR(1000) DEFAULT '';
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal sqlstate '45000' set message_text = msg;
+            END IF;
+
+            --DECLARE DONE INT DEFAULT 0;
+            
+            --DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+
+            
+
+            
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+	BEGIN 
+	    DECLARE L_STEP CHAR(1000) DE' at line 6
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(1000) DEFAULT '';
+            DECLARE L_MSG  CHAR(1000) DEFAULT '';
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal sqlstate '45000' set message_text = msg;
+            END IF;
+
+            --DECLARE DONE INT DEFAULT 0;
+            
+            --DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+
+            
+
+            
+
+	       
+	END
+--------------
+
+ERROR 1074 (42000): Column length too big for column '' (max = 255); use BLOB or TEXT instead
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal sqlstate '45000' set message_text = msg;
+            END IF;
+
+            --DECLARE DONE INT DEFAULT 0;
+            
+            --DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+
+            
+
+            
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--DECLARE DONE INT DEFAULT 0;
+            
+            --DECLARE CONTINUE HANDLE' at line 17
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal sqlstate '45000' set message_text = msg;
+            END IF;
+
+        
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call app2_trnproc( 33);
+--------------
+call app2_trnproc( 33)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal sqlstate '45000' set message_text = msg;
+            END IF;
+
+        
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call app2_trnproc( 33);
+--------------
+call app2_trnproc( 33)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call app2_trnproc( null );
+--------------
+call app2_trnproc( null )
+--------------
+
+ERROR 1054 (42S22): Unknown column 'msg' in 'field list'
+mysql> call app2_trnproc( null );
+--------------
+call app2_trnproc( null )
+--------------
+
+ERROR 1054 (42S22): Unknown column 'msg' in 'field list'
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+        
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call app2_trnproc( 33);
+--------------
+call app2_trnproc( 33)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call app2_trnproc( null );
+--------------
+call app2_trnproc( null )
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call app2_trnproc( null );
+--------------
+call app2_trnproc( null )
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+mysql> call app2_trnproc( 33 );
+--------------
+call app2_trnproc( 33 )
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+mysql> call app2_trnproc( 3333 );
+--------------
+call app2_trnproc( 3333 )
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_D' at line 11
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            --DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+
+            
+            DECLARE L_TRN' at line 11
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+
+            
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+
+            DECLARE EXIT HANDLER FOR SQLEXCEPTION;
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ';
+            SET L_STEP = 'Проверяю входные параметры';' at line 22
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call app2_trnproc( null );
+--------------
+call app2_trnproc( null )
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+mysql> call app2_trnproc( 33 );
+--------------
+call app2_trnproc( 33 )
+--------------
+
+ERROR 1644 (45000): ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД: В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!
+mysql> call app2_trnproc( null );
+--------------
+call app2_trnproc( null )
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+           IF L_PROC_STATUS <> ''
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'END' at line 48
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+           IF L_PROC_STATUS <> ''
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'END' at line 48
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+           IF L_PROC_STATUS <> ''
+
+
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'END' at line 48
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS = 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS = 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+            IF L_DDF IS NOT NULL AND CURRENT_DATE() NOT BETWEEN(L_DDS, L_DDF)   THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебет' at line 70
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+            IF L_DDF IS NOT NULL AND CURRENT_DATE() NOT BETWEEN(L_DDS, L_DDF)   THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебет' at line 70
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+            IF L_DDF IS NOT NULL AND CURRENT_DATE() NOT BETWEEN(L_DDS, L_DDF)   THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебет' at line 70
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+            IF L_DDF IS NOT NULL   THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+            IF L_DDF IS NOT NULL   THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+            SET L_STEP = 'ПРОВЕРЯЮ АКТУАЛЬНОСТЬ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ) НА ДАТУ ТРАНЗАКЦИИ';
+            IF L_DTTRN  IS NOT BETWEEN(L_DDS, IFNULL(L_DDF, CURRENT_DATE()) )   THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не действует !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BETWEEN(L_DDS, IFNULL(L_DDF, CURRENT_DATE()) )   THEN
+                set L_MSG ' at line 71
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ АКТУАЛЬНОСТЬ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ) НА ДАТУ ТРАНЗАКЦИИ';
+            IF L_DTTRN  NOT BETWEEN L_DDS AND  IFNULL(L_DDF, CURRENT_DATE())    THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не действует !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ АКТУАЛЬНОСТЬ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ) НА ДАТУ ТРАНЗАКЦИИ';
+            IF L_DTTRN  NOT BETWEEN L_DDS AND  IFNULL(L_DDF, CURRENT_DATE())    THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не действует !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+ 
+         
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS APP2_TRNPROC
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE PROCEDURE `APP2_TRNPROC` ( IN A_TRNID INT ) 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Процессинг транзакций' 
+        
+	BEGIN 
+	    DECLARE L_STEP CHAR(255) DEFAULT '';
+            DECLARE L_MSG  CHAR(255) DEFAULT '';
+            DECLARE L_EXCEPTION CONDITION FOR SQLSTATE '45000';
+            
+
+            
+            DECLARE L_TRNID        INT ;
+            DECLARE L_DTTRN        DATE ; 
+            DECLARE L_DBT_CUSTID   INT ;
+            DECLARE L_KRD_CUSTID   INT ; 
+            DECLARE L_SUM          DECIMAL(9,2) ; 
+            DECLARE L_TRM_COMMENT  CHAR(50) ; 
+            DECLARE L_PROC_STATUS  CHAR(1) ;
+            DECLARE L_NOT_FOUND    INT DEFAULT 0;
+            
+            DECLARE L_DCUSTID        INT ;
+            DECLARE L_DSUM           DECIMAL(9,2) ; 
+            DECLARE L_DDS            DATE ;
+            DECLARE L_DDF            DATE ; 
+            
+            DECLARE L_KCUSTID        INT ;
+            DECLARE L_KSUM           DECIMAL(9,2) ; 
+            DECLARE L_KDS            DATE ;
+            DECLARE L_KDF            DATE ; 
+
+
+
+ 
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET L_NOT_FOUND = 1;
+
+            SET L_STEP = 'Проверяю входные параметры';
+            IF A_TRNID IS NULL THEN
+                set L_MSG = concat(L_STEP , ': Не указан ID  транзакции!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД';
+            SELECT A.TRNID, A.DTTRN, A.DBT_CUSTID, A.KRD_CUSTID, A.SUM, A.TRM_COMMENT, A.PROC_STATUS
+            INTO L_TRNID, L_DTTRN, L_DBT_CUSTID, L_KRD_CUSTID, L_SUM, L_TRM_COMMENT, L_PROC_STATUS
+            FROM APP2$TRN A
+            WHERE A.TRNID = A_TRNID FOR UPDATE;
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ';
+           
+            IF L_PROC_STATUS <> 'N' THEN
+               set L_MSG = concat(L_STEP , ': НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!');
+               signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+           
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_DCUSTID, L_DSUM, L_DDS, L_DDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_DBT_CUSTID FOR UPDATE;
+   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ АКТУАЛЬНОСТЬ КЛИЕНТА ПО ДЕБЕТУ(СПИСАНИЮ) НА ДАТУ ТРАНЗАКЦИИ';
+            IF L_DTTRN  NOT BETWEEN L_DDS AND  IFNULL(L_DDF, CURRENT_DATE())    THEN
+                set L_MSG = concat(L_STEP , ': Клиент по дебету(списанию) не действует !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+             
+            SET L_STEP = 'ЧИТАЮ ДАННЫЕ КЛИЕНТА ПО КРЕДИТУ (ЗАЧИСЛЕНИЮ)';
+            SELECT  D.CUSTID, D.SUM, D.DS, D.DF
+            INTO L_KCUSTID, L_KSUM, L_KDS, L_KDF    
+            FROM APP2$CUST D
+            WHERE D.CUSTID = L_KRD_CUSTID FOR UPDATE;   
+            IF L_NOT_FOUND = 1 THEN
+                set L_MSG = concat(L_STEP , ': Клиент по кредиту(зачислению) не найден !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+            SET L_STEP = 'ПРОВЕРЯЮ АКТУАЛЬНОСТЬ КЛИЕНТА ПО КРЕДИТУ(ЗАЧИСЛЕНИЮ) НА ДАТУ ТРАНЗАКЦИИ';
+            IF L_DTTRN  NOT BETWEEN L_KDS AND  IFNULL(L_KDF, CURRENT_DATE())    THEN
+                set L_MSG = concat(L_STEP , ': Клиент по кредиту(кредиту) не действует !');
+                signal L_EXCEPTION set message_text = L_MSG;
+            END IF;
+
+           SET L_STEP = 'ВЫПОЛНЯЮ СПИСАНИЕ';
+           IF L_DSUM - L_SUM < 0 THEN
+                set L_MSG = concat(L_STEP , ': После выполнения транзакции остаток < 0. Операция не возможна !');
+                signal L_EXCEPTION set message_text = L_MSG;
+
+           END IF;
+           
+           UPDATE APP2$CUST DD
+           SET DD.SUM = DD.SUM -L_SUM
+           WHERE DD.CUSTID= L_DBT_CUSTID;
+                                 
+           SET L_STEP = 'ВЫПОЛНЯЮ ЗАЧИСЛЕНИЕ';
+           UPDATE APP2$CUST KK
+           SET KK.SUM = KK.SUM + L_SUM
+           WHERE KK.CUSTID= L_KRD_CUSTID;
+            
+           SET L_STEP = 'УСТАНАВЛИВАЮ СТАТУС ПРОВЕДЕННОСТИ ТРАНЗАКЦИИ';
+           UPDATE APP2$TRN A
+           SET A.PROC_STATUS = 'P'
+           WHERE A.TRNID = A_TRNID;
+           
+           
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from app2$trn;
+--------------
+select * from app2$trn
+--------------
+
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+| TRNID | DTTRN      | DBT_CUSTID | KRD_CUSTID | SUM  | TRM_COMMENT                         | PROC_STATUS | PROC_ERR | PROC_DTTM | IDT                 | IUSRNM         | MDT  | MUSRNM |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+|     1 | 2021-08-02 |          1 |          2 | 2.21 | Перавая транзакция                  | N           | NULL     | NULL      | 2021-08-02 08:48:30 | root@localhost | NULL | NULL   |
+|     2 | 2021-08-02 |          1 |          4 | 1.11 | Вторая транзакция                   | N           | NULL     | NULL      | 2021-08-02 08:48:30 | root@localhost | NULL | NULL   |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> source proc-trn-01.sql ;
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+call APP2_TRNPROC(NULL)
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+--------------
+call APP2_TRNPROC(333)
+--------------
+
+ERROR 1644 (45000): ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД: В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!
+--------------
+call APP2_TRNPROC(1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+call APP2_TRNPROC(2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+select A.* from app2$trn
+--------------
+
+ERROR 1051 (42S02): Unknown table 'A'
+mysql> rollback;
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> source proc-trn-01.sql ;
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+call APP2_TRNPROC(NULL)
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+--------------
+call APP2_TRNPROC(333)
+--------------
+
+ERROR 1644 (45000): ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД: В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!
+--------------
+call APP2_TRNPROC(1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+call APP2_TRNPROC(2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+select A.* from app2$trn A
+--------------
+
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+---------------------+---------------------+----------------+---------------------+----------------+
+| TRNID | DTTRN      | DBT_CUSTID | KRD_CUSTID | SUM  | TRM_COMMENT                         | PROC_STATUS | PROC_ERR | PROC_DTTM           | IDT                 | IUSRNM         | MDT                 | MUSRNM         |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+---------------------+---------------------+----------------+---------------------+----------------+
+|     1 | 2021-08-02 |          1 |          2 | 2.21 | Перавая транзакция                  | P           | NULL     | 2021-08-02 11:12:59 | 2021-08-02 08:48:30 | root@localhost | 2021-08-02 11:12:59 | root@localhost |
+|     2 | 2021-08-02 |          1 |          4 | 1.11 | Вторая транзакция                   | P           | NULL     | 2021-08-02 11:12:59 | 2021-08-02 08:48:30 | root@localhost | 2021-08-02 11:12:59 | root@localhost |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+---------------------+---------------------+----------------+---------------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> rollback
+    -> ;
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> rollback;
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> source proc-trn-01.sql ;
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.* from app2$trn A
+--------------
+
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+| TRNID | DTTRN      | DBT_CUSTID | KRD_CUSTID | SUM  | TRM_COMMENT                         | PROC_STATUS | PROC_ERR | PROC_DTTM | IDT                 | IUSRNM         | MDT  | MUSRNM |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+|     1 | 2021-08-02 |          1 |          2 | 2.21 | Перавая транзакция                  | N           | NULL     | NULL      | 2021-08-02 08:48:30 | root@localhost | NULL | NULL   |
+|     2 | 2021-08-02 |          1 |          4 | 1.11 | Вторая транзакция                   | N           | NULL     | NULL      | 2021-08-02 08:48:30 | root@localhost | NULL | NULL   |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+2 rows in set (0.00 sec)
+
+--------------
+call APP2_TRNPROC(NULL)
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+--------------
+call APP2_TRNPROC(333)
+--------------
+
+ERROR 1644 (45000): ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД: В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!
+--------------
+call APP2_TRNPROC(1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+call APP2_TRNPROC(2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+select A.* from app2$trn A
+--------------
+
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+---------------------+---------------------+----------------+---------------------+----------------+
+| TRNID | DTTRN      | DBT_CUSTID | KRD_CUSTID | SUM  | TRM_COMMENT                         | PROC_STATUS | PROC_ERR | PROC_DTTM           | IDT                 | IUSRNM         | MDT                 | MUSRNM         |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+---------------------+---------------------+----------------+---------------------+----------------+
+|     1 | 2021-08-02 |          1 |          2 | 2.21 | Перавая транзакция                  | P           | NULL     | 2021-08-02 11:13:58 | 2021-08-02 08:48:30 | root@localhost | 2021-08-02 11:13:58 | root@localhost |
+|     2 | 2021-08-02 |          1 |          4 | 1.11 | Вторая транзакция                   | P           | NULL     | 2021-08-02 11:13:58 | 2021-08-02 08:48:30 | root@localhost | 2021-08-02 11:13:58 | root@localhost |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+---------------------+---------------------+----------------+---------------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> rollback;
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select T.TRNID, T.DTTRN, T.SUM, T.STATUS, D.SUM AS DBTRST, K.SUM AS KRDRST
+    -> from app2$trn T
+    -> INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+    -> INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID;
+--------------
+select T.TRNID, T.DTTRN, T.SUM, T.STATUS, D.SUM AS DBTRST, K.SUM AS KRDRST
+from app2$trn T
+INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID
+--------------
+
+ERROR 1054 (42S22): Unknown column 'T.STATUS' in 'field list'
+mysql> select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.SUM AS DBTRST, K.SUM AS KRDRST
+    -> from app2$trn T
+    -> INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+    -> INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID;
+--------------
+select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.SUM AS DBTRST, K.SUM AS KRDRST
+from app2$trn T
+INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID
+--------------
+
++-------+------------+------+-------------+---------+---------+
+| TRNID | DTTRN      | SUM  | PROC_STATUS | DBTRST  | KRDRST  |
++-------+------------+------+-------------+---------+---------+
+|     1 | 2021-08-02 | 2.21 | N           | 1000.56 | 1000.56 |
+|     2 | 2021-08-02 | 1.11 | N           | 1000.56 | 1000.56 |
++-------+------------+------+-------------+---------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.CUSTID as DBT_CUSTID, D.SUM AS DBTRST, K.CUSTID as KRD_CUSTID, K.SUM AS KRDRST
+    -> from app2$trn T
+    -> INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+    -> INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID;
+--------------
+select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.CUSTID as DBT_CUSTID, D.SUM AS DBTRST, K.CUSTID as KRD_CUSTID, K.SUM AS KRDRST
+from app2$trn T
+INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID
+--------------
+
++-------+------------+------+-------------+------------+---------+------------+---------+
+| TRNID | DTTRN      | SUM  | PROC_STATUS | DBT_CUSTID | DBTRST  | KRD_CUSTID | KRDRST  |
++-------+------------+------+-------------+------------+---------+------------+---------+
+|     1 | 2021-08-02 | 2.21 | N           |          1 | 1000.56 |          2 | 1000.56 |
+|     2 | 2021-08-02 | 1.11 | N           |          1 | 1000.56 |          4 | 1000.56 |
++-------+------------+------+-------------+------------+---------+------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> source proc-trn-01.sql ;
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.CUSTID as DBT_CUSTID, D.SUM AS DBTRST, K.CUSTID as KRD_CUSTID, K.SUM AS KRDRST
+from app2$trn T
+INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID
+--------------
+
++-------+------------+------+-------------+------------+---------+------------+---------+
+| TRNID | DTTRN      | SUM  | PROC_STATUS | DBT_CUSTID | DBTRST  | KRD_CUSTID | KRDRST  |
++-------+------------+------+-------------+------------+---------+------------+---------+
+|     1 | 2021-08-02 | 2.21 | N           |          1 | 1000.56 |          2 | 1000.56 |
+|     2 | 2021-08-02 | 1.11 | N           |          1 | 1000.56 |          4 | 1000.56 |
++-------+------------+------+-------------+------------+---------+------------+---------+
+2 rows in set (0.00 sec)
+
+--------------
+call APP2_TRNPROC(NULL)
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+--------------
+call APP2_TRNPROC(333)
+--------------
+
+ERROR 1644 (45000): ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД: В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!
+--------------
+call APP2_TRNPROC(1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+call APP2_TRNPROC(2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.CUSTID as DBT_CUSTID, D.SUM AS DBTRST, K.CUSTID as KRD_CUSTID, K.SUM AS KRDRST
+from app2$trn T
+INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID
+--------------
+
++-------+------------+------+-------------+------------+--------+------------+---------+
+| TRNID | DTTRN      | SUM  | PROC_STATUS | DBT_CUSTID | DBTRST | KRD_CUSTID | KRDRST  |
++-------+------------+------+-------------+------------+--------+------------+---------+
+|     1 | 2021-08-02 | 2.21 | P           |          1 | 997.24 |          2 | 1002.77 |
+|     2 | 2021-08-02 | 1.11 | P           |          1 | 997.24 |          4 | 1001.67 |
++-------+------------+------+-------------+------------+--------+------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> commit;
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source proc-trn-01.sql ;
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.CUSTID as DBT_CUSTID, D.SUM AS DBTRST, K.CUSTID as KRD_CUSTID, K.SUM AS KRDRST
+from app2$trn T
+INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID
+--------------
+
++-------+------------+------+-------------+------------+--------+------------+---------+
+| TRNID | DTTRN      | SUM  | PROC_STATUS | DBT_CUSTID | DBTRST | KRD_CUSTID | KRDRST  |
++-------+------------+------+-------------+------------+--------+------------+---------+
+|     1 | 2021-08-02 | 2.21 | P           |          1 | 997.24 |          2 | 1002.77 |
+|     2 | 2021-08-02 | 1.11 | P           |          1 | 997.24 |          4 | 1001.67 |
++-------+------------+------+-------------+------------+--------+------------+---------+
+2 rows in set (0.00 sec)
+
+--------------
+call APP2_TRNPROC(NULL)
+--------------
+
+ERROR 1644 (45000): Проверяю входные параметры: Не указан ID  транзакции!
+--------------
+call APP2_TRNPROC(333)
+--------------
+
+ERROR 1644 (45000): ЧИТАЮ ТРАНЗАКЦИЮ ИЗ БД: В БД ТРАНЗАКЦИЯ НЕ НАЙДЕНА!
+--------------
+call APP2_TRNPROC(1)
+--------------
+
+ERROR 1644 (45000): ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ: НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!
+--------------
+call APP2_TRNPROC(2)
+--------------
+
+ERROR 1644 (45000): ПРОВЕРЯЮ ДОПУСТИМОСТЬ СТАТУСА ТРАНЗАКЦИИ: НЕ ДОПУСТИМЫЙ СТАТУС ТРАНЗАКЦИИ!
+--------------
+select T.TRNID, T.DTTRN, T.SUM, T.PROC_STATUS, D.CUSTID as DBT_CUSTID, D.SUM AS DBTRST, K.CUSTID as KRD_CUSTID, K.SUM AS KRDRST
+from app2$trn T
+INNER join app2$cust d on d.CUSTID = T.DBT_CUSTID
+INNER join app2$cust k on k.CUSTID = T.KRD_CUSTID
+--------------
+
++-------+------------+------+-------------+------------+--------+------------+---------+
+| TRNID | DTTRN      | SUM  | PROC_STATUS | DBT_CUSTID | DBTRST | KRD_CUSTID | KRDRST  |
++-------+------------+------+-------------+------------+--------+------------+---------+
+|     1 | 2021-08-02 | 2.21 | P           |          1 | 997.24 |          2 | 1002.77 |
+|     2 | 2021-08-02 | 1.11 | P           |          1 | 997.24 |          4 | 1001.67 |
++-------+------------+------+-------------+------------+--------+------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!

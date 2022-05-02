@@ -1,0 +1,145 @@
+mysql> source db-getstru.sql
+--------------
+show databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test1              |
+| test2              |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+Database changed
+--------------
+DESCRIBE APP1$OWNERS
+--------------
+
++-----------+-------------------+------+-----+---------+-------+
+| Field     | Type              | Null | Key | Default | Extra |
++-----------+-------------------+------+-----+---------+-------+
+| IDOWNER   | int               | NO   | PRI | NULL    |       |
+| FIRSTNAME | varchar(20)       | YES  |     | NULL    |       |
+| LASTNAME  | varchar(20)       | YES  |     | NULL    |       |
+| AGE       | smallint unsigned | YES  |     | NULL    |       |
+| PHONE     | varchar(20)       | YES  | UNI | NULL    |       |
+| IDT       | datetime          | YES  |     | NULL    |       |
+| IUSRNM    | varchar(32)       | YES  |     | NULL    |       |
+| MDT       | datetime          | YES  |     | NULL    |       |
+| MUSRNM    | varchar(32)       | YES  |     | NULL    |       |
++-----------+-------------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+--------------
+DESCRIBE TABLE APP1$DISCS
+--------------
+
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table      | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | APP1$DISCS | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    1 |   100.00 | NULL  |
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> source db-getstru.sql
+--------------
+drop database IF EXISTS test2
+--------------
+
+Query OK, 2 rows affected (0.04 sec)
+
+--------------
+create database test2
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+show databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test1              |
+| test2              |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+Database changed
+--------------
+CREATE TABLE APP1$OWNERS
+(
+    IDOWNER INT,
+    FIRSTNAME VARCHAR(20),
+    LASTNAME  VARCHAR(20),
+    AGE SMALLINT UNSIGNED,
+    PHONE  VARCHAR(20),
+    IDT DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$OWNERS_PK PRIMARY KEY( IDOWNER ),
+    CONSTRAINT APP1$OWNERS_FIRSTNAME_NNL CHECK(FIRSTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_LASTNAME_NNL  CHECK(LASTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_NNL  CHECK(AGE IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_RNG  CHECK(AGE>0 AND AGE<100),
+    CONSTRAINT APP1$OWNERS_PHONE_UK  UNIQUE(Phone)
+)
+--------------
+
+Query OK, 0 rows affected (0.03 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$owners     |
++-----------------+
+1 row in set (0.00 sec)
+
+--------------
+CREATE TABLE APP1$DISCS
+(
+    IDDISC INT,
+    DISCNAME VARCHAR(20),
+    IDOWNER  VARCHAR(20),
+    IDT DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$DISC_PK PRIMARY KEY( IDDISC )
+)
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$discs      |
+| app1$owners     |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!

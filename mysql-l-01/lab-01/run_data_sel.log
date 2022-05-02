@@ -1,0 +1,501 @@
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A WHERE A.AGE > 10
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+2 rows in set (0.00 sec)
+
+--------------
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.AGE > 10
+--------------
+
++------------+----------------------+------+---------+
+| FIRSTNAME  | LASTNAME             | AGE  | IDOWNER |
++------------+----------------------+------+---------+
+| ЛЕЛИК      | БОЛИК                |   34 |       2 |
+| МОНЯ       | СВЕТЛИЧНЫЙ           |   27 |       3 |
++------------+----------------------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql> source data-select.sql
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A WHERE A.AGE > 10
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+2 rows in set (0.00 sec)
+
+--------------
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDOWNER in ( 1,4 )
+--------------
+
++------------+------------------+------+---------+
+| FIRSTNAME  | LASTNAME         | AGE  | IDOWNER |
++------------+------------------+------+---------+
+| ПЕТРО      | ВАСЕЧКИН         |    2 |       1 |
+| СОНЯ       | КОШКИНА          |   10 |       4 |
++------------+------------------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql> source data-select.sql
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A WHERE A.AGE > 10
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+2 rows in set (0.00 sec)
+
+--------------
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDOWNER in ( 1,4 )
+--------------
+
++------------+------------------+------+---------+
+| FIRSTNAME  | LASTNAME         | AGE  | IDOWNER |
++------------+------------------+------+---------+
+| ПЕТРО      | ВАСЕЧКИН         |    2 |       1 |
+| СОНЯ       | КОШКИНА          |   10 |       4 |
++------------+------------------+------+---------+
+2 rows in set (0.00 sec)
+
+--------------
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDT IS NULL
+--------------
+
++------------+----------------------+------+---------+
+| FIRSTNAME  | LASTNAME             | AGE  | IDOWNER |
++------------+----------------------+------+---------+
+| ПЕТРО      | ВАСЕЧКИН             |    2 |       1 |
+| ЛЕЛИК      | БОЛИК                |   34 |       2 |
+| МОНЯ       | СВЕТЛИЧНЫЙ           |   27 |       3 |
+| СОНЯ       | КОШКИНА              |   10 |       4 |
++------------+----------------------+------+---------+
+4 rows in set (0.00 sec)
+
+mysql> source data-select.sql
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A WHERE A.AGE > 10
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+2 rows in set (0.00 sec)
+
+--------------
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDOWNER in ( 1,4 )
+--------------
+
++------------+------------------+------+---------+
+| FIRSTNAME  | LASTNAME         | AGE  | IDOWNER |
++------------+------------------+------+---------+
+| ПЕТРО      | ВАСЕЧКИН         |    2 |       1 |
+| СОНЯ       | КОШКИНА          |   10 |       4 |
++------------+------------------+------+---------+
+2 rows in set (0.00 sec)
+
+--------------
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDT IS NULL
+--------------
+
++------------+----------------------+------+---------+
+| FIRSTNAME  | LASTNAME             | AGE  | IDOWNER |
++------------+----------------------+------+---------+
+| ПЕТРО      | ВАСЕЧКИН             |    2 |       1 |
+| ЛЕЛИК      | БОЛИК                |   34 |       2 |
+| МОНЯ       | СВЕТЛИЧНЫЙ           |   27 |       3 |
+| СОНЯ       | КОШКИНА              |   10 |       4 |
++------------+----------------------+------+---------+
+4 rows in set (0.00 sec)
+
+--------------
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDT IS NOT NULL
+--------------
+
+Empty set (0.00 sec)
+
+mysql> data-modify.sql 
+    -> ;
+--------------
+data-modify.sql
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'data-modify.sql' at line 1
+mysql> source data-modify.sql;
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 15, 
+    B.PHONE = '111-11-11'
+WHERE A.IDOWNER = 3
+--------------
+
+ERROR 1054 (42S22): Unknown column 'A.IDOWNER' in 'where clause'
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
++---------+------+-----------+
+| IDOWNER | AGE  | PHONE     |
++---------+------+-----------+
+|       3 |   27 | 444-33-44 |
++---------+------+-----------+
+1 row in set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 18, 
+    B.PHONE = '555-55-55'
+WHERE A.IDOWNER = 3
+--------------
+
+ERROR 1054 (42S22): Unknown column 'A.IDOWNER' in 'where clause'
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
++---------+------+-----------+
+| IDOWNER | AGE  | PHONE     |
++---------+------+-----------+
+|       3 |   27 | 444-33-44 |
++---------+------+-----------+
+1 row in set (0.00 sec)
+
+mysql> source data-modify.sql;
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 15, 
+    B.PHONE = '111-11-11'
+WHERE B.IDOWNER = 3
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
++---------+------+-----------+
+| IDOWNER | AGE  | PHONE     |
++---------+------+-----------+
+|       3 |   15 | 111-11-11 |
++---------+------+-----------+
+1 row in set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 18, 
+    B.PHONE = '555-55-55'
+WHERE B.IDOWNER = 3
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
++---------+------+-----------+
+| IDOWNER | AGE  | PHONE     |
++---------+------+-----------+
+|       3 |   18 | 555-55-55 |
++---------+------+-----------+
+1 row in set (0.00 sec)
+
+mysql> source data-modify.sql;
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   18 | 555-55-55 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 15, 
+    B.PHONE = '111-11-11'
+WHERE B.IDOWNER = 3
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
++---------+------+-----------+
+| IDOWNER | AGE  | PHONE     |
++---------+------+-----------+
+|       3 |   15 | 111-11-11 |
++---------+------+-----------+
+1 row in set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 18, 
+    B.PHONE = '555-55-55'
+WHERE B.IDOWNER = 3
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
++---------+------+-----------+
+| IDOWNER | AGE  | PHONE     |
++---------+------+-----------+
+|       3 |   18 | 555-55-55 |
++---------+------+-----------+
+1 row in set (0.00 sec)
+
+--------------
+DELETE FROM  APP1$OWNERS C WHERE C.IDOWNER IN (2,3)
+--------------
+
+Query OK, 2 rows affected (0.00 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> source data-modify.sql;
+Database changed
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME         | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН         |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА          |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+2 rows in set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 15, 
+    B.PHONE = '111-11-11'
+WHERE B.IDOWNER = 3
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+update APP1$OWNERS B 
+set B.AGE = 18, 
+    B.PHONE = '555-55-55'
+WHERE B.IDOWNER = 3
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.IDOWNER, A.AGE, A.PHONE from  APP1$OWNERS A WHERE A.IDOWNER=3
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+DELETE FROM  APP1$OWNERS C WHERE C.IDOWNER IN (2,3)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME         | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН         |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА          |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!

@@ -1,0 +1,14 @@
+﻿
+
+tee run_stru.log
+show databases;
+
+use test2 
+
+
+DESCRIBE TABLE APP1$OWNERS;
+DESCRIBE APP1$OWNERS;
+
+DESCRIBE TABLE APP1$DISCS;
+DESCRIBE APP1$DISCS;
+

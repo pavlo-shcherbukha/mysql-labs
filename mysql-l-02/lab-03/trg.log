@@ -1,0 +1,245 @@
+Database changed
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    NEW.IDT =  CURRENT_TIMESTAMP();
+    NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;
+  END;
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.IDT =  CURRENT_TIMESTAMP();
+    NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;
+  END' at line 4
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> Terminal close -- exit!
+Database changed
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    NEW.IDT = CURRENT_TIMESTAMP();
+    //NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;
+  END;
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.IDT = CURRENT_TIMESTAMP();
+    //NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;
+  END' at line 4
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> Terminal close -- exit!
+Database changed
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.IDT = CURRENT_TIMESTAMP();
+    
+  END;
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> drop trigger APP1$OWNERS_BI_TRG;
+    -> ;
+    -> ;
+    -> 
+    -> 
+    -> ^C
+mysql> source trg-01.sql;
+ERROR: 
+Failed to open file 'trg-01.sql;', error: 2
+mysql> ls
+    -> ;
+    -> ^C
+mysql> exot
+    -> 
+    -> 
+    -> ^C
+mysql> quit ;
+    -> 
+    -> ^C
+mysql> exit ;
+    -> 
+    -> 
+    -> 
+    -> 
+    -> ^C
+mysql> Terminal close -- exit!
+Database changed
+--------------
+DROP TRIGGER IF EXISTS APP1$OWNERS_BI_TRG
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.IDT = CURRENT_TIMESTAMP();
+    SET NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;   
+  END;
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source data-ins-3.sql;
+ERROR: 
+Failed to open file 'data-ins-3.sql;', error: 2
+mysql> source data-ins-3.sql;
+ERROR: 
+Failed to open file 'data-ins-3.sql;', error: 2
+mysql> 
+mysql> ls
+    -> 
+    -> 
+    -> 
+    -> ^C
+mysql> Terminal close -- exit!
+Database changed
+--------------
+DROP TRIGGER IF EXISTS APP1$OWNERS_BI_TRG
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.IDT = CURRENT_TIMESTAMP();
+    SET NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;   
+  END;
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source data-ins-3.sql;
+ERROR: 
+Failed to open file 'data-ins-3.sql;', error: 2
+mysql> ^C
+mysql> y
+    -> ^C
+mysql> Terminal close -- exit!
+Database changed
+--------------
+DROP TRIGGER IF EXISTS APP1$OWNERS_BI_TRG
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.IDT = CURRENT_TIMESTAMP();
+    SET NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;   
+  END;
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source data-ins-3.sql;
+Database changed
+--------------
+DROP TRIGGER IF EXISTS APP1$OWNERS_BI_TRG
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.IDT = CURRENT_TIMESTAMP();
+    SET NEW.IUSRNM = USER();
+    SET NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;   
+  END;
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source data-ins-3.sql;
+Database changed
+--------------
+DROP TRIGGER IF EXISTS APP1$OWNERS_BU_TRG
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE TRIGGER APP1$OWNERS_BU_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.MDT = CURRENT_TIMESTAMP();
+    SET NEW.MUSRNM = USER();
+    SET NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;   
+    SET NEW.LASTNAME = TRIM(NEW.LASTNAME) ;   
+  END;
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source data-upd-1.sql;
+Database changed
+--------------
+DROP TRIGGER IF EXISTS APP1$OWNERS_BU_TRG
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+--------------
+CREATE TRIGGER APP1$OWNERS_BU_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.MDT = CURRENT_TIMESTAMP();
+    SET NEW.MUSRNM = USER();
+    SET NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;   
+    SET NEW.LASTNAME = TRIM(NEW.LASTNAME) ;   
+  END;
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source data-upd-1.sql;
+Database changed
+--------------
+DROP TRIGGER IF EXISTS APP1$OWNERS_BU_TRG
+--------------
+
+Query OK, 0 rows affected (0.02 sec)
+
+--------------
+CREATE TRIGGER APP1$OWNERS_BU_TRG BEFORE UPDATE ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    SET NEW.MDT = CURRENT_TIMESTAMP();
+    SET NEW.MUSRNM = USER();
+    SET NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME) ;   
+    SET NEW.LASTNAME = TRIM(NEW.LASTNAME) ;   
+  END;
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source data-ins-3.sql;

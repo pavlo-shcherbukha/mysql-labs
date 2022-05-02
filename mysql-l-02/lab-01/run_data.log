@@ -1,0 +1,1117 @@
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (1, 'НУ ПОГОДИ', 1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (2, 'CИМСОНЫ', 1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (3, 'ОДИН ДОМА', 2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (4, 'ПСиХОЛОГИНИ', 2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (5, 'ЗВЕЗДНЫЕ ВОЙНЫ', 2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (6, 'ПЕСНИ 70х', 3)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (7, 'ДИСКОТЕКА 80х', 3)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (8, 'ДИСКОТЕКА 90х', 3)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (9, 'RAMSHTAIN', 4)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (10, 'THE KISS', 4)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (11, 'ТИНА КАРОЛЬ', 4)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> source data-ins2.sql;
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`test2`.`app1$discs`, CONSTRAINT `APP1$DISC_IDOWNER_FK` FOREIGN KEY (`IDOWNER`) REFERENCES `app1$owners` (`IDOWNER`))
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$owners.PRIMARY'
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (1, 'НУ ПОГОДИ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (2, 'CИМСОНЫ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (3, 'ОДИН ДОМА', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (4, 'ПСиХОЛОГИНИ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (5, 'ЗВЕЗДНЫЕ ВОЙНЫ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '5' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (6, 'ПЕСНИ 70х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '6' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (7, 'ДИСКОТЕКА 80х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '7' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (8, 'ДИСКОТЕКА 90х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '8' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (9, 'RAMSHTAIN', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '9' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (10, 'THE KISS', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '10' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (11, 'ТИНА КАРОЛЬ', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '11' for key 'app1$discs.PRIMARY'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select B.* from APP1$OWNERS B
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> source db-getstru.sql;
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`test2`.`app1$discs`, CONSTRAINT `APP1$DISC_IDOWNER_FK` FOREIGN KEY (`IDOWNER`) REFERENCES `app1$owners` (`IDOWNER`))
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$owners.PRIMARY'
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (1, 'НУ ПОГОДИ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (2, 'CИМСОНЫ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (3, 'ОДИН ДОМА', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (4, 'ПСиХОЛОГИНИ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (5, 'ЗВЕЗДНЫЕ ВОЙНЫ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '5' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (6, 'ПЕСНИ 70х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '6' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (7, 'ДИСКОТЕКА 80х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '7' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (8, 'ДИСКОТЕКА 90х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '8' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (9, 'RAMSHTAIN', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '9' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (10, 'THE KISS', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '10' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (11, 'ТИНА КАРОЛЬ', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '11' for key 'app1$discs.PRIMARY'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select B.* from APP1$DISCS B
+--------------
+
++--------+-----------------------------+---------+------+--------+------+--------+
+| IDDISC | DISCNAME                    | IDOWNER | IDT  | IUSRNM | MDT  | MUSRNM |
++--------+-----------------------------+---------+------+--------+------+--------+
+|      1 | НУ ПОГОДИ                   |       1 | NULL | NULL   | NULL | NULL   |
+|      2 | CИМСОНЫ                     |       1 | NULL | NULL   | NULL | NULL   |
+|      3 | ОДИН ДОМА                   |       2 | NULL | NULL   | NULL | NULL   |
+|      4 | ПСиХОЛОГИНИ                 |       2 | NULL | NULL   | NULL | NULL   |
+|      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 | NULL | NULL   | NULL | NULL   |
+|      6 | ПЕСНИ 70х                   |       3 | NULL | NULL   | NULL | NULL   |
+|      7 | ДИСКОТЕКА 80х               |       3 | NULL | NULL   | NULL | NULL   |
+|      8 | ДИСКОТЕКА 90х               |       3 | NULL | NULL   | NULL | NULL   |
+|      9 | RAMSHTAIN                   |       4 | NULL | NULL   | NULL | NULL   |
+|     10 | THE KISS                    |       4 | NULL | NULL   | NULL | NULL   |
+|     11 | ТИНА КАРОЛЬ                 |       4 | NULL | NULL   | NULL | NULL   |
++--------+-----------------------------+---------+------+--------+------+--------+
+11 rows in set (0.00 sec)
+
+mysql> source data-ins2.sql;
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`test2`.`app1$discs`, CONSTRAINT `APP1$DISC_IDOWNER_FK` FOREIGN KEY (`IDOWNER`) REFERENCES `app1$owners` (`IDOWNER`))
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$owners.PRIMARY'
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (1, 'НУ ПОГОДИ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (2, 'CИМСОНЫ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (3, 'ОДИН ДОМА', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (4, 'ПСиХОЛОГИНИ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (5, 'ЗВЕЗДНЫЕ ВОЙНЫ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '5' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (6, 'ПЕСНИ 70х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '6' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (7, 'ДИСКОТЕКА 80х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '7' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (8, 'ДИСКОТЕКА 90х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '8' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (9, 'RAMSHTAIN', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '9' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (10, 'THE KISS', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '10' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (11, 'ТИНА КАРОЛЬ', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '11' for key 'app1$discs.PRIMARY'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select B.* from APP1$DISCS B
+--------------
+
++--------+-----------------------------+---------+------+--------+------+--------+
+| IDDISC | DISCNAME                    | IDOWNER | IDT  | IUSRNM | MDT  | MUSRNM |
++--------+-----------------------------+---------+------+--------+------+--------+
+|      1 | НУ ПОГОДИ                   |       1 | NULL | NULL   | NULL | NULL   |
+|      2 | CИМСОНЫ                     |       1 | NULL | NULL   | NULL | NULL   |
+|      3 | ОДИН ДОМА                   |       2 | NULL | NULL   | NULL | NULL   |
+|      4 | ПСиХОЛОГИНИ                 |       2 | NULL | NULL   | NULL | NULL   |
+|      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 | NULL | NULL   | NULL | NULL   |
+|      6 | ПЕСНИ 70х                   |       3 | NULL | NULL   | NULL | NULL   |
+|      7 | ДИСКОТЕКА 80х               |       3 | NULL | NULL   | NULL | NULL   |
+|      8 | ДИСКОТЕКА 90х               |       3 | NULL | NULL   | NULL | NULL   |
+|      9 | RAMSHTAIN                   |       4 | NULL | NULL   | NULL | NULL   |
+|     10 | THE KISS                    |       4 | NULL | NULL   | NULL | NULL   |
+|     11 | ТИНА КАРОЛЬ                 |       4 | NULL | NULL   | NULL | NULL   |
++--------+-----------------------------+---------+------+--------+------+--------+
+11 rows in set (0.00 sec)
+
+mysql> select A.IDOWNER, A.FIRSTNAME, A.LASTNAME, A.AGE, A.PHONE, B.IDDISC, B.DISCNAME, B.IDOWNER
+    -> FROM APP1$OWNERS A, APP1$DISCS B
+    -> WHERE A.IDOWNER=B.IDOWNER ;
+--------------
+select A.IDOWNER, A.FIRSTNAME, A.LASTNAME, A.AGE, A.PHONE, B.IDDISC, B.DISCNAME, B.IDOWNER
+FROM APP1$OWNERS A, APP1$DISCS B
+WHERE A.IDOWNER=B.IDOWNER
+--------------
+
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDDISC | DISCNAME                    | IDOWNER |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      1 | НУ ПОГОДИ                   |       1 |
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      2 | CИМСОНЫ                     |       1 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      3 | ОДИН ДОМА                   |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      4 | ПСиХОЛОГИНИ                 |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      6 | ПЕСНИ 70х                   |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      7 | ДИСКОТЕКА 80х               |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      8 | ДИСКОТЕКА 90х               |       3 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |      9 | RAMSHTAIN                   |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     10 | THE KISS                    |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     11 | ТИНА КАРОЛЬ                 |       4 |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+11 rows in set (0.00 sec)
+
+mysql> source data-ins2.sql;
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`test2`.`app1$discs`, CONSTRAINT `APP1$DISC_IDOWNER_FK` FOREIGN KEY (`IDOWNER`) REFERENCES `app1$owners` (`IDOWNER`))
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$owners.PRIMARY'
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (1, 'НУ ПОГОДИ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (2, 'CИМСОНЫ', 1)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (3, 'ОДИН ДОМА', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (4, 'ПСиХОЛОГИНИ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (5, 'ЗВЕЗДНЫЕ ВОЙНЫ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '5' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (6, 'ПЕСНИ 70х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '6' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (7, 'ДИСКОТЕКА 80х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '7' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (8, 'ДИСКОТЕКА 90х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '8' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (9, 'RAMSHTAIN', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '9' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (10, 'THE KISS', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '10' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (11, 'ТИНА КАРОЛЬ', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '11' for key 'app1$discs.PRIMARY'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select B.* from APP1$DISCS B
+--------------
+
++--------+-----------------------------+---------+------+--------+------+--------+
+| IDDISC | DISCNAME                    | IDOWNER | IDT  | IUSRNM | MDT  | MUSRNM |
++--------+-----------------------------+---------+------+--------+------+--------+
+|      1 | НУ ПОГОДИ                   |       1 | NULL | NULL   | NULL | NULL   |
+|      2 | CИМСОНЫ                     |       1 | NULL | NULL   | NULL | NULL   |
+|      3 | ОДИН ДОМА                   |       2 | NULL | NULL   | NULL | NULL   |
+|      4 | ПСиХОЛОГИНИ                 |       2 | NULL | NULL   | NULL | NULL   |
+|      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 | NULL | NULL   | NULL | NULL   |
+|      6 | ПЕСНИ 70х                   |       3 | NULL | NULL   | NULL | NULL   |
+|      7 | ДИСКОТЕКА 80х               |       3 | NULL | NULL   | NULL | NULL   |
+|      8 | ДИСКОТЕКА 90х               |       3 | NULL | NULL   | NULL | NULL   |
+|      9 | RAMSHTAIN                   |       4 | NULL | NULL   | NULL | NULL   |
+|     10 | THE KISS                    |       4 | NULL | NULL   | NULL | NULL   |
+|     11 | ТИНА КАРОЛЬ                 |       4 | NULL | NULL   | NULL | NULL   |
++--------+-----------------------------+---------+------+--------+------+--------+
+11 rows in set (0.00 sec)
+
+--------------
+select A.IDOWNER, A.FIRSTNAME, A.LASTNAME, A.AGE, A.PHONE, B.IDDISC, B.DISCNAME, B.IDOWNER
+FROM APP1$OWNERS A, APP1$DISCS B
+WHERE A.IDOWNER=B.IDOWNER
+--------------
+
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDDISC | DISCNAME                    | IDOWNER |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      1 | НУ ПОГОДИ                   |       1 |
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      2 | CИМСОНЫ                     |       1 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      3 | ОДИН ДОМА                   |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      4 | ПСиХОЛОГИНИ                 |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      6 | ПЕСНИ 70х                   |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      7 | ДИСКОТЕКА 80х               |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      8 | ДИСКОТЕКА 90х               |       3 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |      9 | RAMSHTAIN                   |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     10 | THE KISS                    |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     11 | ТИНА КАРОЛЬ                 |       4 |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+11 rows in set (0.00 sec)
+
+mysql> quit
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`test2`.`app1$discs`, CONSTRAINT `APP1$DISC_IDOWNER_FK` FOREIGN KEY (`IDOWNER`) REFERENCES `app1$owners` (`IDOWNER`))
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$owners.PRIMARY'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$owners.PRIMARY'
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (1, 'НУ ПОГОДИ', 1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (2, 'CИМСОНЫ', 1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (3, 'ОДИН ДОМА', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '3' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (4, 'ПСиХОЛОГИНИ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '4' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (5, 'ЗВЕЗДНЫЕ ВОЙНЫ', 2)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '5' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (6, 'ПЕСНИ 70х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '6' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (7, 'ДИСКОТЕКА 80х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '7' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (8, 'ДИСКОТЕКА 90х', 3)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '8' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (9, 'RAMSHTAIN', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '9' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (10, 'THE KISS', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '10' for key 'app1$discs.PRIMARY'
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (11, 'ТИНА КАРОЛЬ', 4)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '11' for key 'app1$discs.PRIMARY'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select B.* from APP1$DISCS B
+--------------
+
++--------+-----------------------------+---------+------+--------+------+--------+
+| IDDISC | DISCNAME                    | IDOWNER | IDT  | IUSRNM | MDT  | MUSRNM |
++--------+-----------------------------+---------+------+--------+------+--------+
+|      1 | НУ ПОГОДИ                   |       1 | NULL | NULL   | NULL | NULL   |
+|      2 | CИМСОНЫ                     |       1 | NULL | NULL   | NULL | NULL   |
+|      3 | ОДИН ДОМА                   |       2 | NULL | NULL   | NULL | NULL   |
+|      4 | ПСиХОЛОГИНИ                 |       2 | NULL | NULL   | NULL | NULL   |
+|      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 | NULL | NULL   | NULL | NULL   |
+|      6 | ПЕСНИ 70х                   |       3 | NULL | NULL   | NULL | NULL   |
+|      7 | ДИСКОТЕКА 80х               |       3 | NULL | NULL   | NULL | NULL   |
+|      8 | ДИСКОТЕКА 90х               |       3 | NULL | NULL   | NULL | NULL   |
+|      9 | RAMSHTAIN                   |       4 | NULL | NULL   | NULL | NULL   |
+|     10 | THE KISS                    |       4 | NULL | NULL   | NULL | NULL   |
+|     11 | ТИНА КАРОЛЬ                 |       4 | NULL | NULL   | NULL | NULL   |
++--------+-----------------------------+---------+------+--------+------+--------+
+11 rows in set (0.00 sec)
+
+--------------
+select A.IDOWNER, A.FIRSTNAME, A.LASTNAME, A.AGE, A.PHONE, B.IDDISC, B.DISCNAME, B.IDOWNER
+FROM APP1$OWNERS A, APP1$DISCS B
+WHERE A.IDOWNER=B.IDOWNER
+--------------
+
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDDISC | DISCNAME                    | IDOWNER |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      1 | НУ ПОГОДИ                   |       1 |
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      2 | CИМСОНЫ                     |       1 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      3 | ОДИН ДОМА                   |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      4 | ПСиХОЛОГИНИ                 |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      6 | ПЕСНИ 70х                   |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      7 | ДИСКОТЕКА 80х               |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      8 | ДИСКОТЕКА 90х               |       3 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |      9 | RAMSHTAIN                   |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     10 | THE KISS                    |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     11 | ТИНА КАРОЛЬ                 |       4 |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+11 rows in set (0.00 sec)
+
+mysql> source data-ins-fk3.sql ;
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (1, 'НУ ПОГОДИ', 1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (2, 'CИМСОНЫ', 1)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (3, 'ОДИН ДОМА', 2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (4, 'ПСиХОЛОГИНИ', 2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (5, 'ЗВЕЗДНЫЕ ВОЙНЫ', 2)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (6, 'ПЕСНИ 70х', 3)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (7, 'ДИСКОТЕКА 80х', 3)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (8, 'ДИСКОТЕКА 90х', 3)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (9, 'RAMSHTAIN', 4)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (10, 'THE KISS', 4)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (11, 'ТИНА КАРОЛЬ', 4)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+--------------
+select B.* from APP1$DISCS B
+--------------
+
++--------+-----------------------------+---------+------+--------+------+--------+
+| IDDISC | DISCNAME                    | IDOWNER | IDT  | IUSRNM | MDT  | MUSRNM |
++--------+-----------------------------+---------+------+--------+------+--------+
+|      1 | НУ ПОГОДИ                   |       1 | NULL | NULL   | NULL | NULL   |
+|      2 | CИМСОНЫ                     |       1 | NULL | NULL   | NULL | NULL   |
+|      3 | ОДИН ДОМА                   |       2 | NULL | NULL   | NULL | NULL   |
+|      4 | ПСиХОЛОГИНИ                 |       2 | NULL | NULL   | NULL | NULL   |
+|      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 | NULL | NULL   | NULL | NULL   |
+|      6 | ПЕСНИ 70х                   |       3 | NULL | NULL   | NULL | NULL   |
+|      7 | ДИСКОТЕКА 80х               |       3 | NULL | NULL   | NULL | NULL   |
+|      8 | ДИСКОТЕКА 90х               |       3 | NULL | NULL   | NULL | NULL   |
+|      9 | RAMSHTAIN                   |       4 | NULL | NULL   | NULL | NULL   |
+|     10 | THE KISS                    |       4 | NULL | NULL   | NULL | NULL   |
+|     11 | ТИНА КАРОЛЬ                 |       4 | NULL | NULL   | NULL | NULL   |
++--------+-----------------------------+---------+------+--------+------+--------+
+11 rows in set (0.00 sec)
+
+--------------
+select A.IDOWNER, A.FIRSTNAME, A.LASTNAME, A.AGE, A.PHONE, B.IDDISC, B.DISCNAME, B.IDOWNER
+FROM APP1$OWNERS A, APP1$DISCS B
+WHERE A.IDOWNER=B.IDOWNER
+--------------
+
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDDISC | DISCNAME                    | IDOWNER |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      1 | НУ ПОГОДИ                   |       1 |
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 |      2 | CИМСОНЫ                     |       1 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      3 | ОДИН ДОМА                   |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      4 | ПСиХОЛОГИНИ                 |       2 |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 |      5 | ЗВЕЗДНЫЕ ВОЙНЫ              |       2 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      6 | ПЕСНИ 70х                   |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      7 | ДИСКОТЕКА 80х               |       3 |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 |      8 | ДИСКОТЕКА 90х               |       3 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |      9 | RAMSHTAIN                   |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     10 | THE KISS                    |       4 |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 |     11 | ТИНА КАРОЛЬ                 |       4 |
++---------+------------+----------------------+------+-----------+--------+-----------------------------+---------+
+11 rows in set (0.00 sec)
+
+mysql> source data-ins-fk2.sql

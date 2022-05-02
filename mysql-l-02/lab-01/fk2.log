@@ -1,0 +1,29 @@
+Database changed
+--------------
+DELETE FROM  APP1$OWNERS  WHERE IDOWNER=1
+--------------
+
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`test2`.`app1$discs`, CONSTRAINT `APP1$DISC_IDOWNER_FK` FOREIGN KEY (`IDOWNER`) REFERENCES `app1$owners` (`IDOWNER`))
+mysql> source data-ins-fk3.sql ;
+Database changed
+--------------
+DELETE FROM  APP1$OWNERS  WHERE IDOWNER=1
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT A.* FROM  APP1$DISCS A WHERE  A.IDOWNER=1;
+--------------
+SELECT A.* FROM  APP1$DISCS A WHERE  A.IDOWNER=1
+--------------
+
+Empty set (0.00 sec)
+
+mysql> SELECT A.* FROM  APP1$OWNERS A WHERE  A.IDOWNER=1;
+--------------
+SELECT A.* FROM  APP1$OWNERS A WHERE  A.IDOWNER=1
+--------------
+
+Empty set (0.00 sec)
+
+mysql> Terminal close -- exit!

@@ -1,0 +1,240 @@
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS IMPORT_CUST
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `IMPORT_CUST` () 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Импорт данных клиентов' 
+	BEGIN 
+
+            DECLARE L_IDBRN INT;
+            DECLARE L_NAMEBRN CHAR(50) ;
+            DECLARE L_CUSTCODE INT DEFAULT 1 ;
+
+            DECLARE DONE INT DEFAULT 0;
+            DECLARE cur CURSOR FOR SELECT IDBRN, NAMEBRN  FROM APP2$BRANCHES;
+            DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+
+            OPEN cur;
+            REPEAT
+                 FETCH CUR INTO L_IDBRN, L_NAMEBRN;
+                 IF NOT DONE THEN
+                     SET L_CUSTCODE = L_CUSTCODE + 1 ;  
+                     INSERT INTO APP2$CUST(IDBRN, CUSTCODE, CUSTNAME, ISACTIVE, DS, SUM )
+                     VALUES ( L_IDBRN, 
+                              LPAD( TRIM( CAST( L_CUSTCODE AS CHAR )), 3, '0' ), 
+                              CONCAT('КЛИЕНТ ' , LPAD( TRIM( CAST( L_CUSTCODE AS CHAR )), 3, '0' ) ), 
+                              'Y', 
+                              '2021-03-01',
+                              1000.56 ) ;
+
+                 END IF;
+            UNTIL DONE END REPEAT;
+            CLOSE CUR;
+
+
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source exec-03.sql;
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+call IMPORT_DATA
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+call IMPORT_CUST
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> commit ;
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from app2$cust;
+--------------
+select * from app2$cust
+--------------
+
++--------+-------+----------+------------------+----------+---------+------------+------+---------------------+----------------+------+--------+
+| CUSTID | IDBRN | CUSTCODE | CUSTNAME         | ISACTIVE | SUM     | DS         | DF   | IDT                 | IUSRNM         | MDT  | MUSRNM |
++--------+-------+----------+------------------+----------+---------+------------+------+---------------------+----------------+------+--------+
+|      1 |    10 | 002      | КЛИЕНТ 002       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:33:04 | root@localhost | NULL | NULL   |
+|      2 |    20 | 003      | КЛИЕНТ 003       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:33:04 | root@localhost | NULL | NULL   |
+|      3 |    30 | 004      | КЛИЕНТ 004       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:33:04 | root@localhost | NULL | NULL   |
+|      4 |    40 | 005      | КЛИЕНТ 005       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:33:04 | root@localhost | NULL | NULL   |
++--------+-------+----------+------------------+----------+---------+------------+------+---------------------+----------------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> source db-build.sql
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS IMPORT_CUST
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `IMPORT_CUST` () 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Импорт данных клиентов' 
+	BEGIN 
+
+            DECLARE L_IDBRN INT;
+            DECLARE L_NAMEBRN CHAR(50) ;
+            DECLARE L_CUSTCODE INT DEFAULT 1 ;
+
+            DECLARE DONE INT DEFAULT 0;
+            DECLARE cur CURSOR FOR SELECT IDBRN, NAMEBRN  FROM APP2$BRANCHES;
+            DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
+
+            OPEN cur;
+            REPEAT
+                 FETCH CUR INTO L_IDBRN, L_NAMEBRN;
+                 IF NOT DONE THEN
+                     SET L_CUSTCODE = L_CUSTCODE + 1 ;  
+                     INSERT INTO APP2$CUST(IDBRN, CUSTCODE, CUSTNAME, ISACTIVE, DS, SUM )
+                     VALUES ( L_IDBRN, 
+                              LPAD( TRIM( CAST( L_CUSTCODE AS CHAR )), 3, '0' ), 
+                              CONCAT('КЛИЕНТ ' , LPAD( TRIM( CAST( L_CUSTCODE AS CHAR )), 3, '0' ) ), 
+                              'Y', 
+                              '2021-03-01',
+                              1000.56 ) ;
+
+                 END IF;
+            UNTIL DONE END REPEAT;
+            CLOSE CUR;
+
+
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source exec-03.sql;
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+call IMPORT_DATA
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+call IMPORT_CUST
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> commit ;
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from app2$cust;
+--------------
+select * from app2$cust
+--------------
+
++--------+-------+----------+------------------+----------+---------+------------+------+---------------------+----------------+------+--------+
+| CUSTID | IDBRN | CUSTCODE | CUSTNAME         | ISACTIVE | SUM     | DS         | DF   | IDT                 | IUSRNM         | MDT  | MUSRNM |
++--------+-------+----------+------------------+----------+---------+------------+------+---------------------+----------------+------+--------+
+|      1 |    10 | 002      | КЛИЕНТ 002       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:39:48 | root@localhost | NULL | NULL   |
+|      2 |    20 | 003      | КЛИЕНТ 003       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:39:48 | root@localhost | NULL | NULL   |
+|      3 |    30 | 004      | КЛИЕНТ 004       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:39:48 | root@localhost | NULL | NULL   |
+|      4 |    40 | 005      | КЛИЕНТ 005       | Y        | 1000.56 | 2021-03-01 | NULL | 2021-08-02 08:39:48 | root@localhost | NULL | NULL   |
++--------+-------+----------+------------------+----------+---------+------------+------+---------------------+----------------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> source trn-01-ins.sql;
+Database changed
+--------------
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+START TRANSACTION
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+INSERT INTO APP2$TRN ( DTTRN, DBT_CUSTID, KRD_CUSTID, SUM, TRM_COMMENT)
+VALUES( CURRENT_DATE(), 1,2, 2.21, 'Перавая транзакция')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+INSERT INTO APP2$TRN ( DTTRN, DBT_CUSTID, KRD_CUSTID, SUM, TRM_COMMENT)
+VALUES( CURRENT_DATE(), 1 , 4, 1.11, 'Вторая транзакция')
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from app2$trn;
+--------------
+select * from app2$trn
+--------------
+
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+| TRNID | DTTRN      | DBT_CUSTID | KRD_CUSTID | SUM  | TRM_COMMENT                         | PROC_STATUS | PROC_ERR | PROC_DTTM | IDT                 | IUSRNM         | MDT  | MUSRNM |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+|     1 | 2021-08-02 |          1 |          2 | 2.21 | Перавая транзакция                  | N           | NULL     | NULL      | 2021-08-02 08:48:30 | root@localhost | NULL | NULL   |
+|     2 | 2021-08-02 |          1 |          4 | 1.11 | Вторая транзакция                   | N           | NULL     | NULL      | 2021-08-02 08:48:30 | root@localhost | NULL | NULL   |
++-------+------------+------------+------------+------+-------------------------------------+-------------+----------+-----------+---------------------+----------------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> commit;
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-03.sql

@@ -1,0 +1,307 @@
+--------------
+drop database IF EXISTS test2
+--------------
+
+Query OK, 2 rows affected (0.04 sec)
+
+--------------
+create database test2
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+show databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test1              |
+| test2              |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+Database changed
+--------------
+CREATE TABLE APP1$OWNERS
+(
+    IDOWNER INT AUTO_INCREMENT,
+    FIRSTNAME VARCHAR(20),
+    LASTNAME  VARCHAR(20),
+    AGE SMALLINT UNSIGNED,
+    PHONE  VARCHAR(20),
+    IDT DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$OWNERS_PK PRIMARY KEY( IDOWNER ),
+    CONSTRAINT APP1$OWNERS_FIRSTNAME_NNL CHECK(FIRSTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_LASTNAME_NNL  CHECK(LASTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_NNL  CHECK(AGE IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_RNG  CHECK(AGE>0 AND AGE<100),
+    CONSTRAINT APP1$OWNERS_PHONE_UK  UNIQUE(Phone)
+)
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$owners     |
++-----------------+
+1 row in set (0.00 sec)
+
+--------------
+CREATE TABLE APP1$DISCS
+(
+    IDDISC   INT AUTO_INCREMENT,
+    DISCNAME VARCHAR(20),
+    IDOWNER  INT,
+    IDT      DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$DISC_PK PRIMARY KEY( IDDISC ),
+    CONSTRAINT APP1$DISC_DISCNAME_NNL CHECK( DISCNAME IS NOT NULL ) ,
+    CONSTRAINT APP1$DISC_IDOWNER_FK FOREIGN KEY ( IDOWNER )  REFERENCES APP1$OWNERS ( IDOWNER ) ON DELETE CASCADE
+)
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$discs      |
+| app1$owners     |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> source trg-01.sql;
+--------------
+CREATE TRIGGER APP1$OWNERS_BI_TRG BEFORE INSERT ON APP1$OWNERS
+  FOR EACH ROW
+  BEGIN
+    NEW.IDT =  CURRENT_TIMESTAMP()
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.IDT =  CURRENT_TIMESTAMP()' at line 4
+--------------
+NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME)
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NEW.FIRSTNAME = TRIM(NEW.FIRSTNAME)' at line 1
+--------------
+END
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'END' at line 1
+mysql> source trg-01.sql;
+--------------
+drop database IF EXISTS test2
+--------------
+
+Query OK, 2 rows affected (0.04 sec)
+
+--------------
+create database test2
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+show databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test1              |
+| test2              |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+Database changed
+--------------
+CREATE TABLE APP1$OWNERS
+(
+    IDOWNER INT AUTO_INCREMENT,
+    FIRSTNAME VARCHAR(20),
+    LASTNAME  VARCHAR(20),
+    AGE SMALLINT UNSIGNED,
+    PHONE  VARCHAR(20),
+    IDT DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$OWNERS_PK PRIMARY KEY( IDOWNER ),
+    CONSTRAINT APP1$OWNERS_FIRSTNAME_NNL CHECK(FIRSTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_LASTNAME_NNL  CHECK(LASTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_NNL  CHECK(AGE IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_RNG  CHECK(AGE>0 AND AGE<100),
+    CONSTRAINT APP1$OWNERS_PHONE_UK  UNIQUE(Phone)
+)
+--------------
+
+Query OK, 0 rows affected (0.03 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$owners     |
++-----------------+
+1 row in set (0.00 sec)
+
+--------------
+CREATE TABLE APP1$DISCS
+(
+    IDDISC   INT AUTO_INCREMENT,
+    DISCNAME VARCHAR(20),
+    IDOWNER  INT,
+    IDT      DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$DISC_PK PRIMARY KEY( IDDISC ),
+    CONSTRAINT APP1$DISC_DISCNAME_NNL CHECK( DISCNAME IS NOT NULL ) ,
+    CONSTRAINT APP1$DISC_IDOWNER_FK FOREIGN KEY ( IDOWNER )  REFERENCES APP1$OWNERS ( IDOWNER ) ON DELETE CASCADE
+)
+--------------
+
+Query OK, 0 rows affected (0.03 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$discs      |
+| app1$owners     |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> source trg-01.sql;
+--------------
+drop database IF EXISTS test2
+--------------
+
+Query OK, 2 rows affected (0.03 sec)
+
+--------------
+create database test2
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+show databases
+--------------
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test1              |
+| test2              |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+Database changed
+--------------
+CREATE TABLE APP1$OWNERS
+(
+    IDOWNER INT AUTO_INCREMENT,
+    FIRSTNAME VARCHAR(20),
+    LASTNAME  VARCHAR(20),
+    AGE SMALLINT UNSIGNED,
+    PHONE  VARCHAR(20),
+    IDT DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$OWNERS_PK PRIMARY KEY( IDOWNER ),
+    CONSTRAINT APP1$OWNERS_FIRSTNAME_NNL CHECK(FIRSTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_LASTNAME_NNL  CHECK(LASTNAME IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_NNL  CHECK(AGE IS NOT NULL),
+    CONSTRAINT APP1$OWNERS_AGE_RNG  CHECK(AGE>0 AND AGE<100),
+    CONSTRAINT APP1$OWNERS_PHONE_UK  UNIQUE(Phone)
+)
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$owners     |
++-----------------+
+1 row in set (0.00 sec)
+
+--------------
+CREATE TABLE APP1$DISCS
+(
+    IDDISC   INT AUTO_INCREMENT,
+    DISCNAME VARCHAR(20),
+    IDOWNER  INT,
+    IDT      DATETIME,
+    IUSRNM  VARCHAR(32),
+    MDT DATETIME,
+    MUSRNM  VARCHAR(32),
+    CONSTRAINT APP1$DISC_PK PRIMARY KEY( IDDISC ),
+    CONSTRAINT APP1$DISC_DISCNAME_NNL CHECK( DISCNAME IS NOT NULL ) ,
+    CONSTRAINT APP1$DISC_IDOWNER_FK FOREIGN KEY ( IDOWNER )  REFERENCES APP1$OWNERS ( IDOWNER ) ON DELETE CASCADE
+)
+--------------
+
+Query OK, 0 rows affected (0.04 sec)
+
+--------------
+SHOW TABLES
+--------------
+
++-----------------+
+| Tables_in_test2 |
++-----------------+
+| app1$discs      |
+| app1$owners     |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> source trg-01.sql;

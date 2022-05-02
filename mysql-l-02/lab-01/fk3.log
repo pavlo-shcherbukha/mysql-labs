@@ -1,0 +1,77 @@
+Database changed
+--------------
+SELECT A.* FROM  APP1$DISCS WHERE  IDOWNER=1
+--------------
+
+ERROR 1051 (42S02): Unknown table 'A'
+--------------
+DELETE FROM  APP1$DISCS  WHERE IDOWNER=1
+--------------
+
+Query OK, 2 rows affected (0.01 sec)
+
+--------------
+SELECT A.* FROM  APP1$DISCS WHERE  IDOWNER=1
+--------------
+
+ERROR 1051 (42S02): Unknown table 'A'
+--------------
+DELETE FROM  APP1$OWNERS  WHERE IDOWNER=1
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> rollback
+    -> ;
+--------------
+rollback
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select from  APP1$OWNERS  WHERE IDOWNER=1;
+--------------
+select from  APP1$OWNERS  WHERE IDOWNER=1
+--------------
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from  APP1$OWNERS  WHERE IDOWNER=1' at line 1
+mysql> select *  from  APP1$OWNERS  WHERE IDOWNER=1;
+--------------
+select *  from  APP1$OWNERS  WHERE IDOWNER=1
+--------------
+
+Empty set (0.00 sec)
+
+mysql> source data-ins2.sql ;
+Database changed
+--------------
+SELECT A.* FROM  APP1$DISCS A WHERE  A.IDOWNER=1
+--------------
+
++--------+-------------------+---------+------+--------+------+--------+
+| IDDISC | DISCNAME          | IDOWNER | IDT  | IUSRNM | MDT  | MUSRNM |
++--------+-------------------+---------+------+--------+------+--------+
+|      1 | НУ ПОГОДИ         |       1 | NULL | NULL   | NULL | NULL   |
+|      2 | CИМСОНЫ           |       1 | NULL | NULL   | NULL | NULL   |
++--------+-------------------+---------+------+--------+------+--------+
+2 rows in set (0.00 sec)
+
+--------------
+DELETE FROM  APP1$DISCS  WHERE IDOWNER=1
+--------------
+
+Query OK, 2 rows affected (0.00 sec)
+
+--------------
+SELECT A.* FROM  APP1$DISCS A WHERE  A.IDOWNER=1
+--------------
+
+Empty set (0.00 sec)
+
+--------------
+DELETE FROM  APP1$OWNERS  WHERE IDOWNER=1
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> source db-build-2.sql;

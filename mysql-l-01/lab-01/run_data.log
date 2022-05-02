@@ -1,0 +1,397 @@
+Database changed
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+ERROR 1054 (42S22): Unknown column 'LASNAME' in 'field list'
+mysql> source data-ins1.sql;
+Database changed
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+mysql> commit;
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> source data-ins1.sql;
+Database changed
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '1' for key 'app1$owners.PRIMARY'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME         | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН         |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+------------------+------+-----------+------+--------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> source data-ins1.sql;
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+5, 'ПОСОМТРИ', 'ТЕЛЕФОН', 43, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '222-33-44' for key 'app1$owners.APP1$OWNERS_PHONE_UK'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+Query OK, 4 rows affected (0.01 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+5, 'ПОСОМТРИ', 'ТЕЛЕФОН', 43, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '222-33-44' for key 'app1$owners.APP1$OWNERS_PHONE_UK'
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> commit;
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> source data-ins1.sql
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+Query OK, 4 rows affected (0.01 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+5, 'ПОСОМТРИ', 'ТЕЛЕФОН', 43, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '222-33-44' for key 'app1$owners.APP1$OWNERS_PHONE_UK'
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> source data-ins1.sql
+Database changed
+--------------
+delete from APP1$OWNERS
+--------------
+
+Query OK, 4 rows affected (0.01 sec)
+
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+1, 'ПЕТРО', 'ВАСЕЧКИН', 2, '222-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+2, 'ЛЕЛИК', 'БОЛИК', 34, '333-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+3, 'МОНЯ', 'СВЕТЛИЧНЫЙ', 27, '444-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+4, 'СОНЯ', 'КОШКИНА', 10, '555-33-44'
+
+)
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+5, 'ПОСОМТРИ', 'ТЕЛЕФОН', 43, '222-33-44'
+
+)
+--------------
+
+ERROR 1062 (23000): Duplicate entry '222-33-44' for key 'app1$owners.APP1$OWNERS_PHONE_UK'
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+7, 'ПОСОМТРИ', 'NULL AGE', null, '666-33-44'
+
+)
+--------------
+
+ERROR 3819 (HY000): Check constraint 'APP1$OWNERS_AGE_NNL' is violated.
+--------------
+insert into APP1$OWNERS( IDOWNER, FIRSTNAME, LASTNAME, AGE, PHONE )
+VALUES (
+8, 'ПОСОМТРИ', 'КАКОЙ-ДОЛГОЖИТЕЛЬ', 120, '666-33-44'
+
+)
+--------------
+
+ERROR 3819 (HY000): Check constraint 'APP1$OWNERS_AGE_RNG' is violated.
+--------------
+commit
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+select A.* from  APP1$OWNERS A
+--------------
+
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+| IDOWNER | FIRSTNAME  | LASTNAME             | AGE  | PHONE     | IDT  | IUSRNM | MDT  | MUSRNM |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+|       1 | ПЕТРО      | ВАСЕЧКИН             |    2 | 222-33-44 | NULL | NULL   | NULL | NULL   |
+|       2 | ЛЕЛИК      | БОЛИК                |   34 | 333-33-44 | NULL | NULL   | NULL | NULL   |
+|       3 | МОНЯ       | СВЕТЛИЧНЫЙ           |   27 | 444-33-44 | NULL | NULL   | NULL | NULL   |
+|       4 | СОНЯ       | КОШКИНА              |   10 | 555-33-44 | NULL | NULL   | NULL | NULL   |
++---------+------------+----------------------+------+-----------+------+--------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> source data-select.sql

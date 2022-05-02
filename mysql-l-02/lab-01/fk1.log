@@ -1,0 +1,7 @@
+Database changed
+--------------
+insert into  APP1$DISCS (IDDISC,DISCNAME,IDOWNER)  values (20, 'НЕТ ТАКОГО IDOWNER', 5)
+--------------
+
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`test2`.`app1$discs`, CONSTRAINT `APP1$DISC_IDOWNER_FK` FOREIGN KEY (`IDOWNER`) REFERENCES `app1$owners` (`IDOWNER`))
+mysql> source data-ins-fk2.sql ;

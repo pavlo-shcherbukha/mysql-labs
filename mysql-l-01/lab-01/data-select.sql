@@ -1,0 +1,19 @@
+﻿tee run_data_sel.log
+use test2
+
+
+select A.* from  APP1$OWNERS A;
+
+
+
+select A.* from  APP1$OWNERS A WHERE A.AGE > 10;
+
+
+
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDOWNER in ( 1,4 );
+
+
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDT IS NULL ;
+
+select A.FIRSTNAME, A.LASTNAME, A.AGE, A.IDOWNER from  APP1$OWNERS A WHERE A.IDT IS NOT NULL ;
+

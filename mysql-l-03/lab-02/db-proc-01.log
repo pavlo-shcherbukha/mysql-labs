@@ -1,0 +1,80 @@
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS IMPORT_DATA
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+--------------
+CREATE PROCEDURE `IMPORT_DATA` () 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Импорт данных филиалов' 
+	BEGIN 
+	    DECLARE L_BRNID INT DEFAULT 10; 
+
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ 1', '2021-02-25'); 
+
+            SET L_BRNID =  L_BRNID + 10 ;
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ ЛЕВЫЙ', '2021-03-05'); 
+
+
+            SET L_BRNID =  L_BRNID + 10;
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ ПРАВЫЙ', '2021-03-15'); 
+
+            SET L_BRNID =  L_BRNID + 10;
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ СКРЫТНЫЙ', '2021-06-25'); 
+
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-02.sql;
+Database changed
+--------------
+DROP PROCEDURE IF EXISTS IMPORT_DATA
+--------------
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+--------------
+CREATE PROCEDURE `IMPORT_DATA` () 
+	LANGUAGE SQL 
+	DETERMINISTIC 
+	SQL SECURITY DEFINER 
+	COMMENT 'Импорт данных филиалов' 
+	BEGIN 
+	    DECLARE L_BRNID INT DEFAULT 10; 
+
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ 1', '2021-02-25'); 
+
+            SET L_BRNID =  L_BRNID + 10 ;
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ ЛЕВЫЙ', '2021-03-05'); 
+
+
+            SET L_BRNID =  L_BRNID + 10;
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ ПРАВЫЙ', '2021-03-15'); 
+
+            SET L_BRNID =  L_BRNID + 10;
+            INSERT INTO APP2$BRANCHES( IDBRN, CODEBRN, NAMEBRN, DS ) 
+                   VALUES (L_BRNID, LPAD( TRIM( CAST( L_BRNID AS CHAR )), 2, '0' ), 'ФИЛИАЛ СКРЫТНЫЙ', '2021-06-25'); 
+
+
+	       
+	END
+--------------
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source db-proc-02.sql
